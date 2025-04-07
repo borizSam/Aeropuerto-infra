@@ -1,0 +1,21 @@
+aws ecs register-task-definition \
+  --family aeropuerto-back-task \
+  --network-mode awsvpc \
+  --requires-compatibilities FARGATE \
+  --cpu "256" \
+  --memory "512" \
+  --execution-role-arn arn:aws:iam::137068224793:role/ecsTaskExecutionRoleAeropuerto \
+  --container-definitions '[
+    {
+      "name": "aeropuerto-back",
+      "image": "borizsam/aeropuerto-back",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true
+    }
+  ]' \
+  --region eu-central-1

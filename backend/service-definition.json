@@ -1,0 +1,15 @@
+{
+    "cluster": "aeropuerto-cluster",
+    "serviceName": "aeropuerto-backend-service",
+    "taskDefinition": "aeropuerto-backend-task",
+    "launchType": "FARGATE",
+    "desiredCount": 1,
+    "networkConfiguration": {
+      "awsvpcConfiguration": {
+        "subnets": ["subnet-xxxxxxxx"], 
+        "securityGroups": ["sg-xxxxxxxx"],
+        "assignPublicIp": "ENABLED"
+      }
+    }
+  }
+  
