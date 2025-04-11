@@ -1,6 +1,12 @@
 #!/bin/bash
 source ./variables.env
 
+echo "🧱 Verificando/creando Log Group para CloudWatch..."
+
+aws logs create-log-group \
+  --log-group-name /ecs/aeropuerto-front-task \
+  --region $REGION 2>/dev/null
+
 echo "🧱 Registrando Task Definition para el FRONTEND..."
 
 aws ecs register-task-definition \
@@ -10,7 +16,7 @@ aws ecs register-task-definition \
   --cpu "256" \
   --memory "512" \
   --execution-role-arn arn:aws:iam::$ACCOUNT_ID:role/ecsTaskExecutionRole \
-  --container-definitions "[
+  --container-definitions "[  
     {
       \"name\": \"aeropuerto-front\",
       \"image\": \"$IMAGE_FRONT\",
@@ -32,3 +38,4 @@ aws ecs register-task-definition \
     }
   ]" \
   --region $REGION
+

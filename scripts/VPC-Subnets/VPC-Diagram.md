@@ -38,3 +38,4 @@ Permite a los recursos dentro de tu VPC salir y recibir tráfico desde Internet.
 Define cómo el tráfico sale desde tu subred (por ejemplo: “todo lo que no es interno, mándalo por la IGW”).
 ## Security Group	
 Firewall virtual. Controla qué tráfico entra/sale a recursos como ECS o EC2. En este caso, permitimos puerto 8080.
+
